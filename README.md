@@ -3,7 +3,7 @@
 Drop-in commenting widget for prototypes. Paste one script tag into any HTML page and reviewers can leave pinned comments anchored to UI elements — like Pastel, but yours.
 
 ```html
-<script src="https://YOUR-HOST/widget.js"></script>
+<script src="https://damon-strickland.github.io/tq-comments/public/widget.js"></script>
 ```
 
 Comments are keyed by URL, so each smol link (or any deployed prototype URL) gets its own thread automatically. No per-page setup.
@@ -47,19 +47,14 @@ const SUPABASE_ANON_KEY = "eyJ...";
 
 (Alternative: leave the placeholders and pass `data-supabase-url` + `data-supabase-key` on the script tag every time you embed. Editing the file is simpler if everyone in your org uses the same Supabase project.)
 
-### 5. Host `widget.js` somewhere
+### 5. Host `widget.js`
 
-Anywhere that serves static files over HTTPS with permissive CORS. Easy options:
-
-- **Cloudflare Pages** — drag and drop `public/`, get a URL.
-- **Netlify Drop** — same idea, drag/drop, get a URL.
-- **GitHub + jsDelivr** — push the repo public to GitHub, then your widget is served from `https://cdn.jsdelivr.net/gh/YOUR-USER/tq-comments@main/public/widget.js`.
-- **Supabase Storage** — make a public bucket, upload `widget.js`.
+This repo is set up to host the widget via **GitHub Pages**. After the initial push, enable Pages on the repo: **Settings → Pages → Source: Deploy from a branch → Branch: `main` → Folder: `/ (root)` → Save**. The widget will be served at `https://<your-user>.github.io/tq-comments/public/widget.js`. Every subsequent `git push` is a deploy.
 
 ### 6. Embed in a prototype
 
 ```html
-<script src="https://YOUR-HOST/widget.js"></script>
+<script src="https://damon-strickland.github.io/tq-comments/public/widget.js"></script>
 ```
 
 That's it. Open the prototype, click the floating "Comments" button, drop a pin, comment.
