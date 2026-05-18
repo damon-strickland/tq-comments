@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>tq-comments · test prototype</title>
+    <style>
+      body { font-family: -apple-system, system-ui, sans-serif; max-width: 760px; margin: 40px auto; padding: 0 20px; color: #111; line-height: 1.5; }
+      h1 { font-size: 28px; }
+      h2 { font-size: 20px; margin-top: 32px; }
+      .card { border: 1px solid #e5e7eb; border-radius: 10px; padding: 20px; margin: 16px 0; }
+      .row { display: flex; gap: 12px; margin: 12px 0; }
+      button.demo { background: #2563eb; color: white; padding: 8px 16px; border: 0; border-radius: 6px; cursor: pointer; font: inherit; }
+      button.demo.ghost { background: #f3f4f6; color: #111; }
+      img { max-width: 100%; border-radius: 8px; }
+      .tall { height: 600px; background: linear-gradient(180deg, #eff6ff, #ddd6fe); border-radius: 12px; margin: 20px 0; }
+    </style>
+  </head>
+  <body>
+    <h1>Pretend Prototype</h1>
+    <p>This is a stand-in for the kind of prototype your users would build. Click the floating "Comments" button to start.</p>
+
+    <div class="card">
+      <h2>Card title</h2>
+      <p>Some descriptive text inside a card. Drop a pin here to test commenting on a specific UI element.</p>
+      <div class="row">
+        <button class="demo">Primary action</button>
+        <button class="demo ghost">Secondary</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Another section</h2>
+      <p>Pins should stick to roughly the same place even when the page is resized or reloaded — they're stored as percentages of the page dimensions.</p>
+    </div>
+
+    <div class="tall"></div>
+
+    <h2>Bottom of the page</h2>
+    <p>Scroll down to verify pins anchored further down render in the right place.</p>
+
+    <script src="/widget.js"></script>
+  </body>
+</html>
