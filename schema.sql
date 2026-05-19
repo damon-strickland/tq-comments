@@ -8,6 +8,7 @@ create table if not exists public.comments (
   y real,
   selector text,
   author text not null check (length(author) between 1 and 60),
+  author_color text,
   body text not null check (length(body) between 1 and 4000),
   resolved boolean not null default false,
   created_at timestamptz not null default now(),
@@ -50,3 +51,24 @@ create policy "anon delete comments" on public.comments for delete to anon using
 -- Realtime (optional — for the v2 swap from polling to WebSocket).
 -- Safe to leave on; the widget ignores it in v1.
 alter publication supabase_realtime add table public.comments;
+
+-- Per-prototype settings (Figma link, etc.) — keyed by URL
+create table if not exists public.prototype_settings (
+  url text primary key,
+  figma_link text,
+  updated_at timestamptz not null default now()
+);
+
+alter table public.prototype_settings enable row level security;
+
+drop policy if exists "anon read settings"   on public.prototype_settings;
+drop policy if exists "anon insert settings" on public.prototype_settings;
+drop policy if exists "anon update settings" on public.prototype_settings;
+create policy "anon read settings"   on public.prototype_settings for select to anon using (true);
+create policy "anon insert settings" on public.prototype_settings for insert to anon with check (true);
+create policy "anon update settings" on public.prototype_settings for update to anon using (true) with check (true);
+
+drop trigger if exists prototype_settings_touch_updated_at on public.prototype_settings;
+create trigger prototype_settings_touch_updated_at
+before update on public.prototype_settings
+for each row execute function public.touch_updated_at();
