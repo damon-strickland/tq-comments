@@ -394,13 +394,14 @@
       .tqc-btn-ghost { background: transparent; color: #6b7280; padding: 6px 8px; }
       .tqc-btn-ghost:hover { color: #111; background: #f3f4f6; }
       .tqc-sidebar {
-        position: fixed; top: 0; right: 0; bottom: 0; width: 360px;
+        position: fixed; top: 12px; right: 12px; bottom: 12px; width: 360px;
         background-color: white;
         background-image: radial-gradient(circle, rgba(0,0,0,0.04) 1px, transparent 1px);
         background-size: 18px 18px;
-        box-shadow: -2px 0 16px rgba(0,0,0,0.12);
+        box-shadow: 0 12px 32px rgba(0,0,0,0.18);
+        border-radius: 12px; overflow: hidden;
         pointer-events: auto; color: #111;
-        transform: translateX(100%); transition: transform 0.2s ease;
+        transform: translateX(calc(100% + 12px)); transition: transform 0.2s ease;
         display: flex; flex-direction: column;
       }
       .tqc-sidebar.open { transform: translateX(0); }
@@ -576,7 +577,7 @@
       .tqc-dark .tqc-sidebar {
         background-color: #080808; color: #f3f4f6;
         background-image: radial-gradient(circle, rgba(255,255,255,0.05) 1px, transparent 1px);
-        box-shadow: -2px 0 16px rgba(0,0,0,0.5);
+        box-shadow: 0 12px 32px rgba(0,0,0,0.55);
       }
       .tqc-dark .tqc-sidebar-head { border-bottom-color: #1f1f1f; }
       .tqc-dark .tqc-sidebar-add { border-bottom-color: #1f1f1f; }
